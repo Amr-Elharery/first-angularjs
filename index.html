@@ -44,6 +44,12 @@
             ng-show="name.available"
           >
             <!-- ng-hide="name.available" -->
+            <!-- <img src="{{name.thumb}}" alt="pic of name" /> -->
+            <img
+              ng-src="{{name.thumb}}"
+              alt="pic of name"
+              ng-show="name.thumb"
+            />
             <h3>{{name.name | uppercase}} - {{name.money | currency: 'E'}}</h3>
 
             <div class="remove" ng-click="removeName(name)">X</div>

@@ -42,24 +42,28 @@ myFirstApp.controller("NamesController", [
         money: 20,
         available: false,
         belt: "red",
+        thumb:`content/img/amr.jpg`
       },
       {
         name: "Mido",
         money: 17,
         available: true,
         belt: "green",
+        thumb:`content/img/mido.jpg`
       },
       {
-        name: "Ziad",
+        name: "Body",
         money: 22,
         available: true,
         belt: "black",
+        thumb:`content/img/body.jpg`
       },
       {
-        name: "Ahmed",
+        name: "Boda",
         money: 21,
         available: true,
         belt: "yellow",
+        thumb:`content/img/body.jpg`
       },
     ];
   },
