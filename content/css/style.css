@@ -42,6 +42,17 @@ h2,
 h3 {
   margin: 0;
 }
+a {
+  color: #fff;
+  padding: 5px 8px;
+  background-color: #ccc;
+  text-decoration: none;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
 
 .belt {
   padding: 5px 10px;
@@ -155,7 +166,7 @@ main {
   margin-left: 10px;
 }
 
-.content img {
+img {
   margin: -12px 10px 0 0;
   width: 50px;
   height: 50px;
@@ -165,4 +176,18 @@ main {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+}
+
+.name {
+  padding: 20px;
+}
+
+.first {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.details {
 }

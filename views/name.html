@@ -1,0 +1,20 @@
+<div class="name">
+  <div class="first">
+    <h3 ng-show="isLoading">Is Loading...</h3>
+
+    <img ng-src="{{name.thumb}}" alt="pic of name" ng-show="name.thumb" />
+    <h3>{{name.name | uppercase}} & {{name.money | currency: 'E'}}</h3>
+
+    <span
+      class="belt"
+      style="
+              background: {{name.belt}};
+              "
+      >{{name.belt | uppercase}} belt</span
+    >
+  </div>
+  <div class="details">
+    <h2>Details:</h2>
+    <p>{{name.details}}</p>
+  </div>
+</div>

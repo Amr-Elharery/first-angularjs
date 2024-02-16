@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "name": "Amr",
+        "money": 20,
+        "available": true,
+        "belt": "red",
+        "thumb": "content/img/amr.jpg",
+        "details": "Student, Male, Work as Frontend developer in Micro Engineering Company"
+    },
+    {
+        "id":2,
+        "name": "Mido",
+        "money": 17,
+        "available": true,
+        "belt": "green",
+        "thumb": "content/img/mido.jpg",
+        "details": "Student, Male, Work as Frontend developer in Micro Engineering Company"
+    },
+    {
+        "id":3,
+        "name": "Body",
+        "money": 22,
+        "available": true,
+        "belt": "black",
+        "thumb": "content/img/body.jpg",
+        "details": "Student, Male, Work as Frontend developer in Micro Engineering Company"
+    },
+    {
+        "id":4,
+        "name": "Boda",
+        "money": 21,
+        "available": false,
+        "belt": "yellow",
+        "thumb": "content/img/body.jpg",
+        "details": "Student, Male, Work as Frontend developer in Micro Engineering Company"
+    }
+]

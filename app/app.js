@@ -11,6 +11,10 @@ myFirstApp.config([
         templateUrl: "../views/directory.html",
         controller: "NamesController",
       })
+      .when("/directory/:id", {
+        templateUrl: "../views/name.html",
+        controller: "NameController",
+      })
       .otherwise({
         redirectTo: "/home",
       });
@@ -19,10 +23,9 @@ myFirstApp.config([
 
 myFirstApp.controller("NamesController", [
   "$scope",
-  function ($scope) {
+  "$http",
+  function ($scope, $http) {
     $scope.message = "Hey all, from controller";
-
-    // $scope.names = ["Amr", "Mido", "Ahmed"];
 
     $scope.removeName = function (name) {
       let removedNameI = $scope.names.indexOf(name);
@@ -47,35 +50,27 @@ myFirstApp.controller("NamesController", [
       console.log($scope.newName.available);
     };
 
-    $scope.names = [
-      {
-        name: "Amr",
-        money: 20,
-        available: false,
-        belt: "red",
-        thumb: `content/img/amr.jpg`,
-      },
-      {
-        name: "Mido",
-        money: 17,
-        available: true,
-        belt: "green",
-        thumb: `content/img/mido.jpg`,
-      },
-      {
-        name: "Body",
-        money: 22,
-        available: true,
-        belt: "black",
-        thumb: `content/img/body.jpg`,
-      },
-      {
-        name: "Boda",
-        money: 21,
-        available: true,
-        belt: "yellow",
-        thumb: `content/img/body.jpg`,
-      },
-    ];
+    $scope.isLoading = true;
+    $http.get("../data/names.json").then(function ({ data }) {
+      console.log(data);
+      $scope.names = data;
+      $scope.isLoading = false;
+    });
+  },
+]);
+
+myFirstApp.controller("NameController", [
+  "$scope",
+  "$routeParams",
+  "$http",
+  function ($scope, $routeParams, $http) {
+    $scope.params = $routeParams;
+
+    $scope.isLoading = true;
+    $http.get("../data/names.json").then(function ({ data }) {
+      $scope.name = data.find((e) => e.id == $scope.params.id);
+
+      $scope.isLoading = false;
+    });
   },
 ]);
