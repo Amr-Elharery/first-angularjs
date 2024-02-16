@@ -1,10 +1,21 @@
-var myFirstApp = angular.module("myFirstApp", []);
+var myFirstApp = angular.module("myFirstApp", ["ngRoute"]);
 
-// myFirstApp.config(function () {});
-
-// myFirstApp.run(function () {});
-
-// myFirstApp.controller(function () {});
+myFirstApp.config([
+  "$routeProvider",
+  function ($routeProvider) {
+    $routeProvider
+      .when("/home", {
+        templateUrl: "../views/home.html",
+      })
+      .when("/directory", {
+        templateUrl: "../views/directory.html",
+        controller: "NamesController",
+      })
+      .otherwise({
+        redirectTo: "/home",
+      });
+  },
+]);
 
 myFirstApp.controller("NamesController", [
   "$scope",
@@ -42,28 +53,28 @@ myFirstApp.controller("NamesController", [
         money: 20,
         available: false,
         belt: "red",
-        thumb:`content/img/amr.jpg`
+        thumb: `content/img/amr.jpg`,
       },
       {
         name: "Mido",
         money: 17,
         available: true,
         belt: "green",
-        thumb:`content/img/mido.jpg`
+        thumb: `content/img/mido.jpg`,
       },
       {
         name: "Body",
         money: 22,
         available: true,
         belt: "black",
-        thumb:`content/img/body.jpg`
+        thumb: `content/img/body.jpg`,
       },
       {
         name: "Boda",
         money: 21,
         available: true,
         belt: "yellow",
-        thumb:`content/img/body.jpg`
+        thumb: `content/img/body.jpg`,
       },
     ];
   },

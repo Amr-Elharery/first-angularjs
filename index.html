@@ -4,6 +4,7 @@
     <title>Angular JS</title>
     <link rel="stylesheet" href="content/css/style.css" />
     <script type="text/javascript" src="app/lib/angular.min.js"></script>
+    <script type="text/javascript" src="app/lib/angular-route.min.js"></script>
     <script src="app/app.js"></script>
   </head>
   <body>
@@ -25,52 +26,6 @@
     <ul>
       <li ng-repeat="meat in meats">{{meat}}</li>
     </ul> -->
-
-    <!-- Content -->
-    <div class="content">
-      <div ng-controller="NamesController">
-        <p>{{message}}</p>
-
-        <button ng-click="order = 'name'">Order by name</button>
-        <button ng-click="order = 'belt'">Order by belt</button>
-
-        <input type="text" ng-model="search" placeholder="Search for name" />
-
-        <h3>Names:</h3>
-        <ul>
-          <!-- <li ng-repeat="name in names | orderBy: '-name'">{{name.name}}</li> -->
-          <li
-            ng-repeat="name in names | orderBy: order | filter: search"
-            ng-show="name.available"
-          >
-            <!-- ng-hide="name.available" -->
-            <!-- <img src="{{name.thumb}}" alt="pic of name" /> -->
-            <img
-              ng-src="{{name.thumb}}"
-              alt="pic of name"
-              ng-show="name.thumb"
-            />
-            <h3>{{name.name | uppercase}} - {{name.money | currency: 'E'}}</h3>
-
-            <div class="remove" ng-click="removeName(name)">X</div>
-
-            <span class="belt" style="background: {{name.belt}};"
-              >{{name.belt | uppercase}} belt</span
-            >
-          </li>
-        </ul>
-
-        <form ng-submit="addName()">
-          <input type="text" placeholder="Name" ng-model="newName.name" />
-          <input type="text" placeholder="Money" ng-model="newName.money" />
-          <input type="text" placeholder="Belt" ng-model="newName.belt" />
-
-          <label>Available:</label>
-          <input type="checkbox" ng-model="newName.available" />
-
-          <input type="submit" value="Add New Name" />
-        </form>
-      </div>
-    </div>
+    <main ng-view></main>
   </body>
 </html>
