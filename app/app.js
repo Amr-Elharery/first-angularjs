@@ -1,4 +1,4 @@
-var myFirstApp = angular.module("myFirstApp", ["ngRoute"]);
+var myFirstApp = angular.module("myFirstApp", ["ngRoute", "ngAnimate"]);
 
 myFirstApp.config([
   "$routeProvider",
@@ -6,6 +6,7 @@ myFirstApp.config([
     $routeProvider
       .when("/home", {
         templateUrl: "../views/home.html",
+        controller: "NamesController",
       })
       .when("/directory", {
         templateUrl: "../views/directory.html",
@@ -18,6 +19,24 @@ myFirstApp.config([
       .otherwise({
         redirectTo: "/home",
       });
+  },
+]);
+
+myFirstApp.directive("randomName", [
+  function () {
+    return {
+      restrict: "E",
+      scope: {
+        names: "=",
+        title: "=",
+      },
+      templateUrl: "../views/random.html",
+      transclude: true, // to take children wrapped in custom directive
+      replace: true, // to replace tag to parent tag in template
+      controller: function ($scope) {
+        $scope.random = Math.floor(Math.random() * 4);
+      },
+    };
   },
 ]);
 
@@ -52,10 +71,13 @@ myFirstApp.controller("NamesController", [
 
     $scope.isLoading = true;
     $http.get("../data/names.json").then(function ({ data }) {
-      console.log(data);
       $scope.names = data;
       $scope.isLoading = false;
     });
+
+    $scope.removeAll = function () {
+      $scope.names = [];
+    };
   },
 ]);
 

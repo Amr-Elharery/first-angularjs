@@ -10,7 +10,7 @@
   <h2>Names:</h2>
   <br />
   <h3 ng-show="isLoading">Loading...</h3>
-  <ul>
+  <ul id="name-list">
     <!-- <li ng-repeat="name in names | orderBy: '-name'">{{name.name}}</li> -->
     <li
       ng-repeat="name in names | orderBy: order | filter: search"
@@ -45,4 +45,6 @@
 
     <input type="submit" value="Add New Name" />
   </form>
+
+  <a href="" ng-click="removeAll()">Remove all names</a>
 </div>

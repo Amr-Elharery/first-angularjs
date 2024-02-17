@@ -100,6 +100,7 @@ main {
 
 .content {
   padding: 20px;
+  overflow: hidden;
 }
 
 .content button,
@@ -171,11 +172,14 @@ img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  float: left;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+}
+
+li img {
+  float: left;
 }
 
 .name {
@@ -188,6 +192,65 @@ img {
   justify-content: space-between;
   margin-bottom: 20px;
 }
+/* Animations */
+main.ng-enter {
+  transition: 0.5s linear all;
+  opacity: 0;
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -ms-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+}
 
-.details {
+/* The finishing CSS styles for the enter animation */
+main.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+#name-list li.ng-enter {
+  transition: 0.5s linear all;
+  opacity: 0;
+  transform: translateY(30px);
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -ms-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  -webkit-transform: translateY(30px);
+  -moz-transform: translateY(30px);
+  -ms-transform: translateY(30px);
+  -o-transform: translateY(30px);
+}
+#name-list li.ng-enter.ng-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+}
+#name-list li.ng-leave {
+  transition: 0.2s linear all;
+  opacity: 1;
+  transform: translateX(0);
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+}
+#name-list li.ng-leave.ng-leave-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+}
+
+#name-list li.ng-leave-stagger {
+  transition-delay: 0.2s;
+  transition-duration: 0;
 }
