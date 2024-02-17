@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myFirstApp">
   <head>
+    <base href="/" />
     <title>Angular JS</title>
     <link rel="stylesheet" href="content/css/style.css" />
     <script type="text/javascript" src="app/lib/angular.min.js"></script>
@@ -12,24 +13,7 @@
     <script src="app/app.js"></script>
   </head>
   <body>
-    <!--ng-init="meats=['pork', 'ham', 'beef']"-->
-    <!-- Way -->
-    <!-- <ng-include src="'header.html'"></ng-include> -->
-    <!-- Another Way -->
     <header ng-include="'header.html'"></header>
-    <!-- 
-    <input
-      type="text"
-      ng-model="favMeat"
-      placeholder="enter your fav meat..."
-    />
-    <p>You typed: {{favMeat}}</p>
-    <p>You like {{meats[2]}}</p>
-
-    <h3>Meats:</h3>
-    <ul>
-      <li ng-repeat="meat in meats">{{meat}}</li>
-    </ul> -->
     <main ng-view></main>
   </body>
 </html>

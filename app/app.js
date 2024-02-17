@@ -2,7 +2,8 @@ var myFirstApp = angular.module("myFirstApp", ["ngRoute", "ngAnimate"]);
 
 myFirstApp.config([
   "$routeProvider",
-  function ($routeProvider) {
+  "$locationProvider",
+  function ($routeProvider, $locationProvider) {
     $routeProvider
       .when("/home", {
         templateUrl: "../views/home.html",
@@ -27,6 +28,8 @@ myFirstApp.config([
       .otherwise({
         redirectTo: "/home",
       });
+
+    $locationProvider.html5Mode(true);
   },
 ]);
 
@@ -110,7 +113,7 @@ myFirstApp.controller("ContactController", [
   "$location",
   function ($scope, $location) {
     $scope.sendMessage = function () {
-      $location.path("contact-success");
+      $location.path("/contact-success");
     };
   },
 ]);
