@@ -18,6 +18,11 @@ myFirstApp.config([
       })
       .when("/contact", {
         templateUrl: "../views/contact.html",
+        controller: "ContactController",
+      })
+      .when("/contact-success", {
+        templateUrl: "../views/contact-success.html",
+        controller: "ContactController",
       })
       .otherwise({
         redirectTo: "/home",
@@ -97,5 +102,15 @@ myFirstApp.controller("NameController", [
 
       $scope.isLoading = false;
     });
+  },
+]);
+
+myFirstApp.controller("ContactController", [
+  "$scope",
+  "$location",
+  function ($scope, $location) {
+    $scope.sendMessage = function () {
+      $location.path("contact-success");
+    };
   },
 ]);
