@@ -16,6 +16,9 @@ myFirstApp.config([
         templateUrl: "../views/name.html",
         controller: "NameController",
       })
+      .when("/contact", {
+        templateUrl: "../views/contact.html",
+      })
       .otherwise({
         redirectTo: "/home",
       });

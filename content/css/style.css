@@ -192,6 +192,58 @@ li img {
   justify-content: space-between;
   margin-bottom: 20px;
 }
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.contact form input:not(input[type="submit"]),
+.contact textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 300px;
+  outline: none;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.contact textarea {
+  resize: none;
+  height: 150px;
+}
+.contact input[type="submit"] {
+  padding: 10px 30px;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+.contact input.ng-valid.ng-dirty,
+.contact input.ng-valid-email.ng-dirty {
+  border: 1px solid #0f0 !important;
+}
+.contact input.ng-invalid.ng-dirty,
+.contact input.ng-invalid-email.ng-dirty {
+  border: 1px solid #f00 !important;
+}
+
+input[disabled="disabled"] {
+  opacity: 0.4;
+  cursor: not-allowed !important;
+}
+
 /* Animations */
 main.ng-enter {
   transition: 0.5s linear all;
